@@ -1,0 +1,107 @@
+JAVASCRIPT:
+programming / scripting language
+JAVASCRIPT scripting language
+
+differance bw prog and scripting:
+prog: compiled
+scripting: interpreted
+
+
+statically typed language  : when we declare a variable, we have to specify the type of the variable.
+dynamically typed language : when we declare a variable, we don't have to specify the type of the variable.
+
+
+server side language : php, asp.net, jsp....
+client side language : html, css, js
+
+
+client only understand : html:
+
+
+use of JAVASCRIPT:
+to manupulate the html elements | DOM manipulation
+
+DOM:document object model
+
+
+var declare:
+3 keywords
+var,let and const
+
+number
+string
+boolean
+object
+undefined
+
+
+
+differance bw var let const..
+
+var scope: global scope:
+let scope : block scope : {}
+const scope : block scope
+
+
+//internal
+//external js
+//inline js
+
+compiler: 
+name of JAVASCRIPT compiler = 
+
+browser JAVASCRIPT engines:
+1st engine: 
+spider monkey: firefox
+v8: google chrome
+chakra: microsoft edge
+
+operators:
+operators are used to perform operations on variables and values.
+type of operators:
+1)unary operators : it requires only one operand.
+2)binary operators : it requires two operands.
+3)ternary operators : it requires three operands.
+
+unary operators:
+1)increment operator: ++a, a++
+2)decrement operator: --a, a--
+
+2)binary operators:
+1)arithmetic operators: +,-,*,/,%,++,--,**
+2)assignment operators: =,+=,-=,*=,/=,%=,<<=,>>=,>>>=,&=,^=,|=
+3)comparison operators: ==,===,!=,!==,>,<,>=,<=
+4)logical operators: &&,||,!
+5)bitwise operators: &,|,^,~,<<,>>,>>>
+6)string operators: +
+7)conditional operators: ?: 
+8)comma operators: ,
+9)typeof operators: typeof
+10)instanceof operators: instanceof
+11)void operators: void
+12)delete operators: delete
+
+
+
+//assignment operators : = 
+right to left
+
+no1 = 100
+no2 = 200
+
+console.log(no1 = 200)
+console.log(no2 = 100)
+
+
+
+decision making statements:
+if else
+switch case
+loops
+
+if(condition){
+    //if block
+}
+else{
+    //else block
+}
