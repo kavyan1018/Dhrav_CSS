@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu</title>
+
+</head>
+
+<body>
+    <label>Please Select from the menu options below: <br>
+        1. Idli <br>
+        2. Pizza <br>
+        3. Paneer
+    </label>
+    <br>
+    <input type="number" placeholder="Main Choice" id="mn">
+    <br>
+    <button type="button" onclick="displayInput()">Submit Main Choice</button>
+
+    <h3>Please select from the detailed options of your desired food:</h3>
+    <p id="output"></p>
+
+    <input type="number" placeholder="Sub Choice" id="f">
+    <br>
+    <button type="button" onclick="placeOrder()">Place Order</button>
+
+    <p id="out"></p>
+</body>
+<script>
+    function displayInput() {
+        var input = parseInt(document.getElementById("mn").value);
+        console.log("Main choice:", input);
+
+        let a = "";
+
+        switch (input) {
+            case 1:
+                a = "1. Rava Idli  2. Sada Idli";
+                break;
+            case 2:
+                a = "1. Margherita Pizza  2. Farmhouse Pizza";
+                break;
+            case 3:
+                a = "1. Pesto Paneer Tikka  2. Paneer Tikka";
+                break;
+            default:
+                a = "Invalid choice! Please enter 1, 2, or 3.";
+                break;
+        }
+
+        document.getElementById("output").innerText = a;
+    }
+
+    function placeOrder() {
+        var mainChoice = parseInt(document.getElementById("mn").value);
+        var subChoice = parseInt(document.getElementById("f").value);
+        console.log("Main:", mainChoice, "Sub:", subChoice);
+
+        let b = "";
+
+        if (mainChoice === 1) {
+            if (subChoice === 1) b = "Order placed for Rava Idli";
+            else if (subChoice === 2) b = "Order placed for Sada Idli";
+            else b = "Invalid sub-option!";
+        }
+        else if (mainChoice === 2) {
+            if (subChoice === 1) b = "Order placed for Margherita Pizza";
+            else if (subChoice === 2) b = "Order placed for Farmhouse Pizza";
+            else b = "Invalid sub-option!";
+        }
+        else if (mainChoice === 3) {
+            if (subChoice === 1) b = "Order placed for Pesto Paneer Tikka";
+            else if (subChoice === 2) b = "Order placed for Paneer Tikka";
+            else b = "Invalid sub-option!";
+        }
+        else {
+            b = "Please select a valid main option first.";
+        }
+
+        document.getElementById("out").innerText = b;
+    }
+</script>
+
+</html>
