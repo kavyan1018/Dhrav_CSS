@@ -1,0 +1,21 @@
+1. Mouse Events 
+    -> onClick
+    -> onMouseover
+    -> onMouseout
+    -> ondbClick : Double Click
+
+2. KeyBoard Events
+    -> onKeydoen
+    -> onKeyup
+    -> onKeypress
+
+3. Form Events
+    -> onSubmit
+    -> onBlure
+    -> onChange
+    -> onFocuse 
+
+4. Window Events
+    -> onLoad
+    -> onScroll
+    -> onreSize
