@@ -1,0 +1,50 @@
+<!-- 
+    KeyBoard Events
+    -> onKeydown
+    -> onKeyup
+    -> onKeypress
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" placeholder="Type here...." 
+    onkeydown="keyDown()"
+    onkeyup="Up()"
+    onkeypress="press()"
+    >
+    <p id="down"></p>
+    <p id="up"></p>
+    <p id="press"></p>
+
+    <script>
+
+        function keyDown() {
+            document.getElementById("down").innerText =
+                "onkeydown: Key is pressed";
+        }
+
+        function Up()
+        {
+            document.getElementById("up").innerText =
+                "onKeyUp : Key is relesed !";
+        }
+
+        function press()
+        {
+            document.getElementById("press").innerText =
+                "onKeypress : Key is pressed      " + event.key + "";
+        }
+
+    </script>
+
+</body>
+</html>
