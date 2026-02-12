@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    #box {
+
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+    }
+</style>
+
+<body>
+
+    <div id="box"></div>
+
+</body>
+<script>
+    let box = document.getElementById('box');
+
+    let topPos = 100;
+    let leftPos = 100;
+    let step = 10;
+
+
+    document.addEventListener("keydown", function (event){
+
+        if (event.key === "ArrowUp") {
+            topPos -= step;
+        }
+        else if (event.key === "ArrowDown") {
+            topPos += step;
+        }
+        else if (event.key === "ArrowLeft") {
+            leftPos -= step;
+        }
+        else if (event.key === "ArrowRight") {
+            leftPos += step;
+        }
+
+        box.style.top = topPos + "px";
+        box.style.left = leftPos + "px";
+
+    });
+
+</script>
+
+</html>
