@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Student Portal</title>
+</head>
+<style>
+    body {
+        background-color: black;
+    }
+
+    #enterdiv,
+    #tablediv {
+        background-color: rgb(17, 17, 17);
+        color: white;
+        width: 1000px;
+        border-radius: 20px;
+        margin-left: 12%;
+        margin-top: 20px;
+    }
+
+    #enterdiv {
+        height: 250px;
+    }
+
+    #f1 {
+        color: white;
+        font-size: 40px;
+    }
+
+    #f2 {
+        font-size: 30px;
+        padding-left: 30px;
+        padding-top: 20px;
+    }
+
+    input {
+        width: 930px;
+        height: 35px;
+        margin-left: 30px;
+        background-color: rgb(34, 34, 34);
+        border: 0;
+        border-radius: 10px;
+        color: white;
+    }
+
+    #inp2 {
+        margin-top: 30px;
+    }
+
+    #b1 {
+        background-color: rgb(6, 235, 6);
+        border: 0;
+        margin-left: 30px;
+        margin-top: 30px;
+        width: 100px;
+        height: 30px;
+        border-radius: 5px;
+    }
+
+    #subdiv {
+        width: 930px;
+        margin-left: 30px;
+        background-color: rgb(34, 34, 34);
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    th {
+        width: 20vw;
+        height: 40px;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    #b3 {
+        background-color: red;
+    }
+
+    #b4 {
+        background-color: green;
+    }
+
+    #b5 {
+        background-color: blue;
+    }
+
+    #div2 {
+        width: 400px;
+        height: 200px;
+        background-color: rgb(34, 34, 34);
+        position: absolute;
+        margin-top: -250px;
+        margin-left: 450px;
+        border-radius: 20px;
+        opacity: 0;
+        padding: 20px;
+    }
+</style>
+
+<body>
+    <center>
+        <h1 id="f1">Mini Student Portal</h1>
+    </center>
+
+    <div id="enterdiv">
+        <br>
+        <div id="f2">Add Student</div><br>
+        <input type="text" placeholder="Enter Student Name" id="inp1"><br>
+        <input type="text" placeholder="Enter Marks" id="inp2">
+        <button id="b1" onclick="addStudent()">Add Student</button>
+    </div>
+
+    <div id="tablediv">
+        <br>
+        <div id="f2">Student List</div><br>
+        <div id="subdiv">
+            <table border="0" width="900px">
+                <thead>
+                    <tr>
+                        <th>Roll No</th>
+                        <th>Name</th>
+                        <th>Marks</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="studentList"></tbody>
+            </table>
+        </div>
+        <br>
+    </div>
+
+    <div id="div2">
+        <center>
+            <h2>Info</h2>
+        </center>
+        <p id="output"></p>
+        <center><button onclick="closeInfo()">OK</button></center>
+    </div>
+
+    <script>
+        let students = [];
+        let roll = 1;
+
+        function addStudent() {
+            let name = document.getElementById("inp1").value;
+            let marks = document.getElementById("inp2").value;
+
+            if (name === "" || marks === "") {
+                alert("Enter name and marks");
+                return;
+            }
+
+            students.push({ rollNo: roll++, name, marks });
+            displayStudents();
+
+            document.getElementById("inp1").value = "";
+            document.getElementById("inp2").value = "";
+        }
+
+        function displayStudents() {
+            let list = document.getElementById("studentList");
+            list.innerHTML = "";
+
+            students.forEach((s, i) => {
+                list.innerHTML += `
+            <tr>
+                <td>${s.rollNo}</td>
+                <td>${s.name}</td>
+                <td>${s.marks}</td>
+                <td>
+                    <button onclick="deleteStudent(${i})" id="b3">Delete</button>
+                    <button onclick="showInfo(${i})" id="b4">Info</button>
+                    <button onclick="editStudent(${i})" id="b5">Edit</button>
+                </td>
+            </tr>`;
+            });
+        }
+
+        function deleteStudent(index) {
+            students.splice(index, 1);
+            displayStudents();
+        }
+
+        function editStudent(index) {
+            let s = students[index];
+            document.getElementById("inp1").value = s.name;
+            document.getElementById("inp2").value = s.marks;
+            deleteStudent(index);
+        }
+
+        function showInfo(index) {
+            let s = students[index];
+            document.getElementById("div2").style.opacity = 1;
+            document.getElementById("output").innerHTML = `
+            <b>Roll No:</b> ${s.rollNo}<br>
+            <b>Name:</b> ${s.name}<br>
+            <b>Marks:</b> ${s.marks}`;
+        }
+
+        function closeInfo() {
+            document.getElementById("div2").style.opacity = 0;
+        }
+    </script>
+</body>
+
+</html>
